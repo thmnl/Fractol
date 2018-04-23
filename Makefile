@@ -6,7 +6,7 @@
 #    By: tmanuel <tmanuel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 17:13:20 by tmanuel           #+#    #+#              #
-#    Updated: 2018/04/23 13:34:01 by tmanuel          ###   ########.fr        #
+#    Updated: 2018/04/23 20:30:09 by tmanuel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ endif
 all: $(NAME) includes/fractol.h
 
 $(NAME): $(OBJ) includes/fractol.h
-	@make -C libft
-#	@make -C minilibx_macos
 	@tput setaf 10
+#	@make -C libft
+#	@make -C minilibx_macos
 	@$(ECHO)
 	@echo -n $@
 	@gcc -g $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB) $(LIBX)
@@ -55,16 +55,16 @@ $(NAME): $(OBJ) includes/fractol.h
 	@printf "                                  "
 
 clean:
-	@make -C libft clean
-#	@make -C minilibx_macos clean
 	@/bin/rm -f $(OBJ)
+#	@make -C libft clean
+#	@make -C minilibx_macos clean
 	@tput setaf 9
 	@echo "fractol clean"
 
 fclean:
-	@make -C libft fclean
-#	@make -C minilibx_macos fclean
 	@/bin/rm -f $(NAME)
+#	@make -C libft fclean
+#	@make -C minilibx_macos fclean
 	@/bin/rm -f $(OBJ)
 	@tput setaf 9
 	@echo "fractol fclean"
