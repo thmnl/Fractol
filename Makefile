@@ -6,13 +6,16 @@
 #    By: tmanuel <tmanuel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 17:13:20 by tmanuel           #+#    #+#              #
-#    Updated: 2018/04/22 19:40:36 by tmanuel          ###   ########.fr        #
+#    Updated: 2018/04/23 13:34:01 by tmanuel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 SRC =	srcs/main.c \
+		srcs/ft_key_hook.c \
+		srcs/ft_pixel_put.c \
+		srcs/ft_print.c \
 
 OBJ = $(patsubst srcs/%.c, %.o, $(SRC))
 
@@ -33,9 +36,9 @@ ifndef ECHO
 	ECHO = printf "\r[`expr $C '*' 100 / $T`%%]"
 endif
 
-all: $(NAME)
+all: $(NAME) includes/fractol.h
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) includes/fractol.h
 	@make -C libft
 #	@make -C minilibx_macos
 	@tput setaf 10
@@ -44,7 +47,7 @@ $(NAME): $(OBJ)
 	@gcc -g $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB) $(LIBX)
 	@printf "\rfractol done                                  \n"
 
-%.o: srcs/%.c
+%.o: srcs/%.c includes/fractol.h
 	@gcc -c $(FLAGS) $(INC) $<
 	@tput setaf 10
 	@$(ECHO)

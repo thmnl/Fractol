@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 21:10:28 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/22 19:16:18 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/23 14:56:48 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "get_next_line.h"
 
 # define INT_MAX 2147483647
-# define SCY 1080
-# define SCX 1920
+# define SCY 1000
+# define SCX 1300
 
 typedef struct	s_libx
 {
@@ -31,6 +31,13 @@ typedef struct	s_libx
 	int		bbp;
 	int		s_l;
 	int		endian;
+	int		frct;
 }				t_libx;
+
+int				ft_mouse_hook(int key, int x, int y, void *f);
+void			ft_exit(char *s);
+int				ft_key_hook(int key, void *f);
+void			ft_putpixel(t_libx *env, int x, int y, int color);
+void			ft_print(t_libx *f);
 
 #endif
