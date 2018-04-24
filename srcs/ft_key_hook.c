@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 13:13:14 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/24 13:26:31 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/24 16:34:14 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,25 @@ int			ft_key_hook2(int key, t_libx *f)
 	return (0);
 }
 
-int			ft_key_hook(int key, void *f)
+int			ft_key_hook(int key, t_libx *f)
 {
 	ft_putnbr(key);
 	ft_putchar('\n');
 	if (key == 53)
 		exit(0);
-	return (ft_key_hook2(key, (t_libx*)f));
+	if (key == 49 && !f->djoo)
+		f->djoo = 1;
+	else if (key == 49)
+		f->djoo = 0;
+	return (ft_key_hook2(key, f));
 }
 
 int			ft_mouse_hook2(int key, int x, int y, t_libx *f)
 {
 	static int i;
 
+	(void)x;
+	(void)y;
 	if (key == 5)
 		i++;
 	if (key == 4)
@@ -60,23 +66,30 @@ int			ft_mouse_hook2(int key, int x, int y, t_libx *f)
 		i = 0;
 	if (key == 4 || key == 5)
 	{
-		printf("%lf\n", f->zoom);
-		f->zoom = (i * i) * i;
-		f->rar1 = x;
-		f->rar2 = y;
+		if (i < 50)
+			f->zoom = i * i * i;
+		else if (i < 100)
+			f->zoom = (i * i * i) * 2;
+		else
+			f->zoom = (i * i * i) * 4;
 		ft_print(f);
 	}
 	return (0);
 }
 
-int			ft_mouse_hook(int key, int x, int y, void *f)
+int			ft_mouse_hook(int key, int x, int y, t_libx *f)
 {
-	ft_mouse_hook2(key, x, y, (t_libx*)f);
-	ft_putnbr(key);
-	ft_putchar('\n');
-	ft_putnbr(x);
-	ft_putchar('\n');
-	ft_putnbr(y);
-	ft_putchar('\n');
+	ft_mouse_hook2(key, x, y, f);
+	return (0);
+}
+
+int			ft_hook(int x, int y, t_libx *f)
+{
+	if (f->djoo == 0 && f->frct == 2)
+	{
+		f->rar1 = x * 6;
+		f->rar2 = y * 6;
+		ft_print(f);
+	}
 	return (0);
 }

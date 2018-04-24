@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 21:10:28 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/24 11:58:57 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/24 15:36:50 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ typedef struct	s_libx
 	double	rar2;
 	int		im;
 	double	x1;
-	double	x2;
 	double	y1;
-	double	y2;
 	double	zoomm;
 	int		imax;
 	double	cr;
@@ -49,12 +47,15 @@ typedef struct	s_libx
 	double	zr;
 	double	zi;
 	int		i;
+	int		djoo;
 }				t_libx;
 
+void			ft_julia(t_libx *f);
+int				ft_hook(int x, int y, t_libx *f);
 void			ft_mandel(t_libx *f);
-int				ft_mouse_hook(int key, int x, int y, void *f);
+int				ft_mouse_hook(int key, int x, int y, t_libx *f);
 void			ft_exit(char *s);
-int				ft_key_hook(int key, void *f);
+int				ft_key_hook(int key, t_libx *f);
 void			ft_putpixel(t_libx *env, int x, int y, int color);
 void			ft_print(t_libx *f);
 
