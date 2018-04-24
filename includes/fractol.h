@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 21:10:28 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/23 20:37:45 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/24 11:58:57 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,26 @@ typedef struct	s_libx
 	int		s_l;
 	int		endian;
 	int		frct;
-	float	x1;
-	float	x2;
-	float	y1;
-	float	y2;
-	int		zoom;
+	double	zoom;
+	double	ar1;
+	double	ar2;
+	double	rar1;
+	double	rar2;
+	int		im;
+	double	x1;
+	double	x2;
+	double	y1;
+	double	y2;
+	double	zoomm;
 	int		imax;
-	float	cr;
-	float	ci;
-	float	zr;
-	float	zi;
+	double	cr;
+	double	ci;
+	double	zr;
+	double	zi;
 	int		i;
 }				t_libx;
 
+void			ft_mandel(t_libx *f);
 int				ft_mouse_hook(int key, int x, int y, void *f);
 void			ft_exit(char *s);
 int				ft_key_hook(int key, void *f);

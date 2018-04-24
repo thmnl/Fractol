@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 19:14:10 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/23 20:34:17 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/24 13:32:16 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			main(int ac, char **av)
 		return (ft_printf("Usage: ./fractol [fract]\n"));
 	if (!(ptr = (t_libx*)malloc(sizeof(t_libx))))
 		ft_exit("Malloc error");
+	ft_bzero(ptr, sizeof(t_libx));
 	ptr->frct = ft_check_fct(av[1]);
 	ptr->mlx_ptr = mlx_init();
 	ptr->win_ptr = mlx_new_window(ptr->mlx_ptr, SCX, SCY, "Fractol");
