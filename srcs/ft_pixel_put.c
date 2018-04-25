@@ -6,28 +6,28 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/31 02:28:19 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/23 13:08:48 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/25 13:29:02 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			ft_putpixel(t_libx *env, int x, int y, int color)
+void			ft_putpixel(t_libx *f, int x, int y, int color)
 {
 	int		pos;
 	int8_t	mask;
 
 	if ((x >= 0 && x <= SCX - 1) && (y >= 0 && y <= SCY - 1))
 	{
-		pos = (y * env->s_l + x * 4);
+		pos = (y * f->s_l + x * 4);
 		mask = color;
-		env->pix[pos] = mask;
+		f->pix[pos] = mask;
 		color = color >> 8;
 		mask = color;
-		env->pix[pos + 1] = mask;
+		f->pix[pos + 1] = mask;
 		color = color >> 8;
 		mask = color;
-		env->pix[pos + 2] = mask;
-		env->pix[pos + 3] = 0x00;
+		f->pix[pos + 2] = mask;
+		f->pix[pos + 3] = 0x00;
 	}
 }

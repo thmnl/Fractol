@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 10:48:10 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/24 11:58:28 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/25 13:39:43 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static void	ft_init_loop(t_libx *f)
 			f->i = 0;
 			ft_loop_mandel(f);
 			if (f->i == f->imax)
-				ft_putpixel(f, x, y, 0);
+				ft_putpixel(f, x, y, f->colorb);
 			else
-				ft_putpixel(f, x, y, f->i * 255 / f->imax);
+				ft_putpixel(f, x, y, f->color[f->i % 5]);
 			x++;
 		}
 		y++;

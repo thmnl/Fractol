@@ -6,7 +6,7 @@
 #    By: tmanuel <tmanuel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 17:13:20 by tmanuel           #+#    #+#              #
-#    Updated: 2018/04/24 14:32:01 by tmanuel          ###   ########.fr        #
+#    Updated: 2018/04/25 13:45:12 by tmanuel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,13 @@ NAME = fractol
 
 SRC =	srcs/main.c \
 		srcs/ft_key_hook.c \
+		srcs/ft_key_hook2.c \
 		srcs/ft_pixel_put.c \
 		srcs/ft_print.c \
 		srcs/mandel.c \
 		srcs/julia.c \
+		srcs/autre.c \
+		srcs/color.c \
 
 OBJ = $(patsubst srcs/%.c, %.o, $(SRC))
 

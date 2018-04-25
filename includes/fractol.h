@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 21:10:28 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/24 15:36:50 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/25 14:19:12 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,20 @@ typedef struct	s_libx
 	double	ci;
 	double	zr;
 	double	zi;
+	double	ce;
+	double	cd;
 	int		i;
 	int		djoo;
+	int 	color[5];
+	int 	colorb;
+	int		psy;
 }				t_libx;
 
+int				ft_keypress(int key, t_libx *f);
+void			ft_color(t_libx *f);
+void			ft_color1(t_libx *f);
+int				ft_loop_hook(t_libx *f);
+void			ft_autre(t_libx *f);
 void			ft_julia(t_libx *f);
 int				ft_hook(int x, int y, t_libx *f);
 void			ft_mandel(t_libx *f);
