@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 21:10:28 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/25 14:19:12 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/26 19:18:57 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include "libft.h"
 # include "get_next_line.h"
 
-# define INT_MAX 2147483647
-# define SCY 1000
-# define SCX 1300
+# define SCY 600
+# define SCX 1000
 
 typedef struct	s_libx
 {
@@ -50,14 +49,19 @@ typedef struct	s_libx
 	double	cd;
 	int		i;
 	int		djoo;
-	int 	color[5];
-	int 	colorb;
+	int		color[5];
+	int		colorb;
 	int		psy;
 }				t_libx;
 
+void			ft_music(void);
+void			ft_test(t_libx *f);
 int				ft_keypress(int key, t_libx *f);
 void			ft_color(t_libx *f);
 void			ft_color1(t_libx *f);
+void			ft_color2(t_libx *f);
+void			ft_color3(t_libx *f);
+void			ft_color4(t_libx *f);
 int				ft_loop_hook(t_libx *f);
 void			ft_autre(t_libx *f);
 void			ft_julia(t_libx *f);

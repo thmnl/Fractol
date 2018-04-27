@@ -6,13 +6,13 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 13:41:21 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/25 14:21:36 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/26 19:15:51 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		ft_loop_hook(t_libx *f)
+int			ft_loop_hook(t_libx *f)
 {
 	if (f->psy == 1)
 	{
@@ -43,17 +43,33 @@ int			ft_keypress2(int key, t_libx *f)
 		f->zoom = 0;
 		f->im = 0;
 	}
+	if (f->im < -10)
+		f->im = -10;
 	if ((key >= 123 && key <= 126) || key == 15 || key == 69 || key == 78)
 		ft_print(f);
 	return (0);
 }
 
-int		ft_keypress(int key, t_libx *f)
+int			ft_keypress(int key, t_libx *f)
 {
+	char	**tmp;
+
 	if (key == 53)
 	{
 		free(f);
+		if (!(tmp = ft_strsplit("killall afplay", ' ')))
+			exit(ft_printf("Malloc error\n"));
+		execve("/usr/bin/killall", tmp, NULL);
+		free(tmp[0]);
+		free(tmp[1]);
+		free(tmp);
 		exit(0);
 	}
+	if (key == 91)
+		f->zoom += 1500;
+	if (key == 87)
+		f->zoom -= 1500;
+	if (key == 87 || key == 91)
+		ft_print(f);
 	return (ft_keypress2(key, f));
 }

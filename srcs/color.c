@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/25 13:29:31 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/25 13:58:32 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/26 19:16:20 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,35 @@ void		ft_color1(t_libx *f)
 	f->color[2] = 0xaa2a2a;
 	f->color[3] = 0x841f1f;
 	f->color[4] = 0x631515;
+	f->colorb = 0;
+}
+
+void		ft_color2(t_libx *f)
+{
+	int				fd;
+	unsigned char	buf[3];
+
+	if (!(fd = open("/dev/random", O_RDONLY)))
+		exit(ft_printf("Failed open /dev/random\n"));
+	read(fd, buf, 3);
+	f->color[0] = creatergb(buf[0] % 255, buf[1] % 255, buf[2] % 255);
+	read(fd, buf, 3);
+	f->color[1] = creatergb(buf[0] % 255, buf[1] % 255, buf[2] % 255);
+	read(fd, buf, 3);
+	f->color[2] = creatergb(buf[0] % 255, buf[1] % 255, buf[2] % 255);
+	read(fd, buf, 3);
+	f->color[3] = creatergb(buf[0] % 255, buf[1] % 255, buf[2] % 255);
+	read(fd, buf, 3);
+	f->color[4] = creatergb(buf[0] % 255, buf[1] % 255, buf[2] % 255);
+}
+
+void		ft_color3(t_libx *f)
+{
+	f->color[0] = 0x00ff55;
+	f->color[1] = 0x00e64d;
+	f->color[2] = 0x00cc44;
+	f->color[3] = 0x009933;
+	f->color[4] = 0x006622;
 	f->colorb = 0;
 }
 

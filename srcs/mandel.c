@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/24 10:48:10 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/25 13:39:43 by tmanuel          ###   ########.fr       */
+/*   Created: 2018/04/26 18:06:30 by tmanuel           #+#    #+#             */
+/*   Updated: 2018/04/26 19:23:17 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_init_mandel(t_libx *f)
 {
 	f->x1 = -0.5 + f->ar1;
 	f->y1 = 0.0 + f->ar2;
-	f->zoomm = 0.8 + f->zoom;
+	f->zoomm = 0.1 + f->zoom;
 	f->imax = 20 + f->im;
 	if (f->imax < 10)
 		f->imax = 10;

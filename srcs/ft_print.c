@@ -6,7 +6,7 @@
 /*   By: tmanuel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 13:07:54 by tmanuel           #+#    #+#             */
-/*   Updated: 2018/04/25 12:45:06 by tmanuel          ###   ########.fr       */
+/*   Updated: 2018/04/26 18:01:09 by tmanuel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_print(t_libx *f)
 {
 	f->image = mlx_new_image(f->mlx_ptr, SCX, SCY);
 	f->pix = mlx_get_data_addr(f->image, &f->bbp, &f->s_l, &f->endian);
-	if (f->frct == 1 || f->frct == 0)
+	if (f->frct == 1)
 		ft_mandel(f);
 	if (f->frct == 2)
 		ft_julia(f);

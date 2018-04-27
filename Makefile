@@ -6,7 +6,7 @@
 #    By: tmanuel <tmanuel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 17:13:20 by tmanuel           #+#    #+#              #
-#    Updated: 2018/04/25 13:45:12 by tmanuel          ###   ########.fr        #
+#    Updated: 2018/04/26 19:26:13 by tmanuel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC =	srcs/main.c \
 		srcs/julia.c \
 		srcs/autre.c \
 		srcs/color.c \
+		srcs/ft_music.c \
 
 OBJ = $(patsubst srcs/%.c, %.o, $(SRC))
 
@@ -45,8 +46,8 @@ all: $(NAME) includes/fractol.h
 
 $(NAME): $(OBJ) includes/fractol.h
 	@tput setaf 10
-#	@make -C libft
-#	@make -C minilibx_macos
+	@make -C libft
+	@make -C minilibx_macos
 	@$(ECHO)
 	@echo -n $@
 	@gcc -g $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB) $(LIBX)
@@ -61,15 +62,15 @@ $(NAME): $(OBJ) includes/fractol.h
 
 clean:
 	@/bin/rm -f $(OBJ)
-#	@make -C libft clean
-#	@make -C minilibx_macos clean
+	@make -C libft clean
+	@make -C minilibx_macos clean
 	@tput setaf 9
 	@echo "fractol clean"
 
 fclean:
 	@/bin/rm -f $(NAME)
-#	@make -C libft fclean
-#	@make -C minilibx_macos fclean
+	@make -C libft fclean
+	@make -C minilibx_macos fclean
 	@/bin/rm -f $(OBJ)
 	@tput setaf 9
 	@echo "fractol fclean"
